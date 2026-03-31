@@ -20,11 +20,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-
     background: url("fondo.jpg") center/cover no-repeat;
     background-color: #f4efe6;
     overflow-x: hidden;
-
     animation: fondoMovimiento 40s ease-in-out infinite alternate;
 }
 
@@ -38,16 +36,13 @@ body {
     max-width: 420px;
     padding: 40px 30px;
     text-align: center;
-
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(6px);
     border-radius: 14px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     animation: aparecer 1.2s ease, flotar 12s ease-in-out infinite;
 }
 
@@ -90,28 +85,20 @@ body {
     margin-bottom: 10px;
 }
 
+/* CORAZÓN ARREGLADO */
 .heart {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: #7a2a2a;
-    transform: rotate(45deg);
+    color: #7a2a2a; /* El color bordó que tenías */
+    font-size: 1.2rem;
     margin-left: 5px;
-    position: relative;
+    font-style: normal;
+    animation: latido 1.5s ease-in-out infinite;
 }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #7a2a2a;
-    border-radius: 50%;
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
 }
-
-.heart::before { top: -6px; }
-.heart::after { left: -6px; }
 
 .btn-next {
     margin-top: 10px;
@@ -120,15 +107,12 @@ body {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-
     background: #d8cfbc;
     color: #5c5446;
     font-size: 20px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: 0.3s ease;
 }
@@ -164,7 +148,7 @@ body {
     <div class="text">
         <p class="nombre">Sofía,</p>
         <p id="carta">Te volviste mi momento favorito del día.</p>
-        <p id="footer-text">Te quiero mucho <span class="heart"></span></p>
+        <p id="footer-text">Te quiero mucho <span class="heart">❤</span></p>
     </div>
 
     <div class="divider">
@@ -178,15 +162,13 @@ body {
 
 <script>
 const cartas = [
-    "Me inspiras a hacer cosas como estas",
-    "Lo admito, me gustas más de lo que imaginaba",
-    "Pensarte es mi razón para sonreír.",
-    "Todo lo bonito me termina recordando a ti",
+    "Me inspiras a crear cosas como estas.",
+    "Lo admito, me gustas mucho más de lo que imaginaba.",
+    "Es inevitable sonreír cuando apareces en mis pensamientos.",
+    "Todo lo bonito me termina recordando a ti.",
     "Sin darme cuenta, me estoy acostumbrando a quererte.",
-    "Me encantas, así de simple.",
-    "Verte es lo mejor de mi día",
-    "Me cambias el ánimo en segundos",
-    "Valoro mucho lo que compartimos",
+    "Sin darle tantas vueltas, me encantas.",
+    "Valoro muchísimo cada momento que compartimos-",
     "Me enamoro de ti cientos de veces al día.",
     "Gracias por ser exactamente como eres."
 ];
@@ -199,7 +181,6 @@ const hint = document.getElementById("instruccion");
 const audio = document.getElementById("musica");
 
 btn.addEventListener("click", () => {
-
     if (audio.paused) audio.play();
 
     index++;
@@ -215,7 +196,6 @@ btn.addEventListener("click", () => {
         }
         carta.style.opacity = 1;
     }, 300);
-
 });
 </script>
 
