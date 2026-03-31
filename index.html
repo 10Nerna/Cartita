@@ -14,6 +14,7 @@
     padding:0;
 }
 
+/* 🧠 BODY LIMPIO (sin fondo directo) */
 body{
     min-height:100vh;
     display:flex;
@@ -21,16 +22,37 @@ body{
     align-items:center;
     padding:20px;
 
-    background: url("fondo.jpg") center/cover no-repeat;
-    background-color:#f4efe6;
-
     overflow-x:hidden;
-    animation: fondoMovimiento 40s ease-in-out infinite alternate;
+    position:relative;
+
+    background-color:#f4efe6;
 }
 
-@keyframes fondoMovimiento{
-    0%{ background-position: center top; }
-    100%{ background-position: center bottom; }
+/* 🌸 FONDO PRO ADAPTADO 3:2 */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background-image:url("fondo.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    transform:scale(1.08);
+
+    z-index:-1;
+}
+
+/* 📱 ajuste móvil */
+@media (max-width:768px){
+    body::before{
+        background-position:center top;
+        transform:scale(1.25);
+    }
 }
 
 /* 💌 tarjeta */
@@ -128,7 +150,7 @@ body{
 .heart::before{ top:-7px; left:0; }
 .heart::after{ left:-7px; top:0; }
 
-/* responsive */
+/* 📱 responsive */
 @media (min-width:768px){
     .text p{ font-size:1.9rem; }
     .nombre{ font-size:2.3rem; }
@@ -146,7 +168,7 @@ body{
 
     <!-- ✨ divisor superior -->
     <div class="divider">
-        <img src="divisor 1.png" alt="decoración">
+        <img src="divisor-1.png" alt="decoración">
     </div>
 
     <div class="text">
@@ -164,7 +186,7 @@ body{
 
     <!-- ✨ divisor inferior -->
     <div class="divider">
-        <img src="divisor 2.png" alt="decoración">
+        <img src="divisor-2.png" alt="decoración">
     </div>
 
 </div>
