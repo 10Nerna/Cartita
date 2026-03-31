@@ -8,171 +8,216 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <style>
-*{
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 
     background: url("fondo.jpg") center/cover no-repeat;
-    background-color:#f4efe6;
+    background-color: #f4efe6;
+    overflow-x: hidden;
 
-    overflow-x:hidden;
     animation: fondoMovimiento 40s ease-in-out infinite alternate;
 }
 
-@keyframes fondoMovimiento{
-    0%{ background-position: center top; }
-    100%{ background-position: center bottom; }
+@keyframes fondoMovimiento {
+    from { background-position: center top; }
+    to { background-position: center bottom; }
 }
 
-/* 💌 tarjeta */
-.card{
-    width:100%;
-    max-width:420px;
-    padding:50px 35px;
-    text-align:center;
+.card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    text-align: center;
 
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(6px);
-    border-radius:14px;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     animation: aparecer 1.2s ease, flotar 12s ease-in-out infinite;
 }
 
-@keyframes aparecer{
-    from{ opacity:0; transform: translateY(30px); }
-    to{ opacity:1; transform: translateY(0); }
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes flotar{
-    0%{ transform: translateY(0px) rotate(0deg); }
-    50%{ transform: translateY(-6px) rotate(0.3deg); }
-    100%{ transform: translateY(0px) rotate(0deg); }
+@keyframes flotar {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
-/* 🌸 divisores */
-.divider{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin:20px 0;
+.divider {
+    margin: 15px 0;
 }
 
-.divider img{
-    width:70%;
-    max-width:220px;
-    height:auto;
-    opacity:0.85;
+.divider img {
+    width: 70%;
+    max-width: 200px;
+    opacity: 0.7;
 }
 
-/* texto */
-.text{
-    font-family:'Playfair Display', serif;
-    color:#2a1f1a;
-
-    font-weight:500;
-    letter-spacing:0.3px;
-    line-height:1.9;
-
-    animation: respirar 6s ease-in-out infinite;
+.text {
+    font-family: 'Playfair Display', serif;
+    color: #2a1f1a;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
-@keyframes respirar{
-    0%,100%{ opacity:0.95; }
-    50%{ opacity:1; }
+.text p {
+    margin: 15px 0;
+    font-size: 1.35rem;
+    font-style: italic;
+    transition: opacity 0.4s ease;
 }
 
-.text p{
-    margin:26px 0;
-    font-size:1.6rem;
-    font-style:italic;
+.nombre {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-.nombre{
-    font-size:2rem;
-    margin-bottom:20px;
-}
-
-/* ❤️ corazón tinta */
-.heart{
-    display:inline-block;
-    width:14px;
-    height:14px;
-    background:#7a2a2a;
+.heart {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #7a2a2a;
     transform: rotate(45deg);
-    margin-left:6px;
-    opacity:0.85;
+    margin-left: 5px;
     position: relative;
 }
 
 .heart::before,
-.heart::after{
-    content:"";
-    position:absolute;
-    width:14px;
-    height:14px;
-    background:#7a2a2a;
-    border-radius:50%;
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #7a2a2a;
+    border-radius: 50%;
 }
 
-.heart::before{ top:-7px; left:0; }
-.heart::after{ left:-7px; top:0; }
+.heart::before { top: -6px; }
+.heart::after { left: -6px; }
 
-/* responsive */
-@media (min-width:768px){
-    .text p{ font-size:1.9rem; }
-    .nombre{ font-size:2.3rem; }
-    .divider img{
-        width:60%;
-        max-width:260px;
-    }
+.btn-next {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background: #d8cfbc;
+    color: #5c5446;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.btn-next:hover {
+    transform: scale(1.1);
+    background: #ccc2ae;
+}
+
+.hint {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #8a7e6a;
+    margin-top: 12px;
+    opacity: 0.6;
+    font-style: italic;
 }
 </style>
 </head>
 
 <body>
 
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
 
-    <!-- ✨ divisor superior -->
     <div class="divider">
-        <img src="divisor 1.png" alt="decoración">
+        <img src="divisor 1.png" alt="">
     </div>
 
     <div class="text">
         <p class="nombre">Sofía,</p>
-
-        <p>
-            En todo lo bonito,<br>
-            siempre estás tú.
-        </p>
-
-        <p>
-            No sé explicarlo,<br>
-            pero me encantas.
-        </p>
-
-        <p>
-            Te quiero mucho. <span class="heart"></span>
-        </p>
+        <p id="carta">Te volviste mi momento favorito del día.</p>
+        <p id="footer-text">Te quiero mucho <span class="heart"></span></p>
     </div>
 
-    <!-- ✨ divisor inferior -->
     <div class="divider">
-        <img src="divisor 2.png" alt="decoración">
+        <img src="divisor 2.png" alt="">
     </div>
+
+    <button class="btn-next" id="boton">➜</button>
+    <p class="hint" id="instruccion">Tócalo</p>
 
 </div>
+
+<script>
+const cartas = [
+    "Me inspiras a hacer cosas como estas",
+    "Lo admito, me gustas más de lo que imaginaba",
+    "Pensarte es mi razón para sonreír.",
+    "Todo lo bonito me termina recordando a ti",
+    "Sin darme cuenta, me estoy acostumbrando a quererte.",
+    "Me encantas, así de simple.",
+    "Verte es lo mejor de mi día",
+    "Me cambias el ánimo en segundos",
+    "Valoro mucho lo que compartimos",
+    "Me enamoro de ti cientos de veces al día.",
+    "Gracias por ser exactamente como eres."
+];
+
+let index = 0;
+
+const carta = document.getElementById("carta");
+const btn = document.getElementById("boton");
+const hint = document.getElementById("instruccion");
+const audio = document.getElementById("musica");
+
+btn.addEventListener("click", () => {
+
+    if (audio.paused) audio.play();
+
+    index++;
+    carta.style.opacity = 0;
+
+    setTimeout(() => {
+        if (index < cartas.length) {
+            carta.textContent = cartas[index];
+        } else {
+            carta.textContent = "Solo quería que supieras lo especial que eres para mí";
+            btn.style.display = "none";
+            hint.textContent = "Fin de la carta. 💌";
+        }
+        carta.style.opacity = 1;
+    }, 300);
+
+});
+</script>
 
 </body>
 </html>
