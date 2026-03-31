@@ -14,7 +14,7 @@
     padding:0;
 }
 
-/* 🧠 BODY LIMPIO (sin fondo directo) */
+/* 🧠 BODY BASE */
 body{
     min-height:100vh;
     display:flex;
@@ -28,7 +28,7 @@ body{
     background-color:#f4efe6;
 }
 
-/* 🌸 FONDO PRO ADAPTADO 3:2 */
+/* 🌸 FONDO 3:2 ADAPTADO PRO */
 body::before{
     content:"";
     position:fixed;
@@ -39,15 +39,14 @@ body::before{
 
     background-image:url("fondo.jpg");
     background-size:cover;
-    background-position:center;
     background-repeat:no-repeat;
+    background-position:center;
 
     transform:scale(1.08);
-
     z-index:-1;
 }
 
-/* 📱 ajuste móvil */
+/* 📱 AJUSTE MÓVIL */
 @media (max-width:768px){
     body::before{
         background-position:center top;
@@ -168,7 +167,7 @@ body::before{
 
     <!-- ✨ divisor superior -->
     <div class="divider">
-        <img src="divisor-1.png" alt="decoración">
+        <img src="divisor 1.png" alt="decoración">
     </div>
 
     <div class="text">
@@ -186,7 +185,7 @@ body::before{
 
     <!-- ✨ divisor inferior -->
     <div class="divider">
-        <img src="divisor-2.png" alt="decoración">
+        <img src="divisor 2.png" alt="decoración">
     </div>
 
 </div>
